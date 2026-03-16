@@ -34,12 +34,18 @@ ANTHROPIC_API_KEY=sk-ant-api03-...
 ## 起動方法
 
 ```bash
-# Windows PowerShell
-$env:PYTHONIOENCODING="utf-8"; uv run python main.py
-
-# bash / Git Bash
-PYTHONIOENCODING=utf-8 uv run python main.py
+uv run python main.py
 ```
+
+---
+
+## テスト実行
+
+```bash
+uv run python tests/run_tests.py
+```
+
+詳細は `テスト仕様書兼報告書.md` を参照。
 
 起動すると対話プロンプトが表示されます。
 
@@ -175,6 +181,10 @@ dev_ai_agent/
 │   └── bash_tool.py     # bash
 ├── prompts/
 │   └── default.md       # システムプロンプト
+├── tests/
+│   ├── test_tools.py    # ユニットテスト（TC-U-01〜13）
+│   ├── test_agent.py    # 統合テスト（TC-I-01〜07）
+│   └── run_tests.py     # テスト実行スクリプト
 ├── .env                 # API キー（git 管理外）
 └── pyproject.toml       # 依存関係
 ```
@@ -186,3 +196,4 @@ dev_ai_agent/
 | `要件仕様書.md` | 何を作るか（機能要件・非機能要件） |
 | `アーキテクチャ設計書.md` | どう分けるか・なぜか（構造・技術選定） |
 | `モジュール設計書.md` | どう動くか（インターフェース・内部フロー） |
+| `テスト仕様書兼報告書.md` | テストケース仕様・実行結果・要件カバレッジ |
